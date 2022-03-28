@@ -31,40 +31,74 @@
     right: 0%;
   }
 
+  #Drop {
+    position: fixed;
+    bottom: 20%;
+    width: 24%;
+    height: 25%;
+  }
+
+  #Pprofile {
+    position: fixed;
+    width: 24%;
+  }
+
   @media screen and (max-width:500px) {
     #Right {
       position: static;
     }
 
+    #Pprofile {
+      position: static;
+      width: 100%;
+
+    }
+
     .players {
       width: 100%;
       height: 50vw;
-      padding-left: 5px;
-      padding-right: 5px;
+      padding-left: 0px;
+      padding-right: 0px;
     }
 
+    #Drop {
+      position: fixed;
+      bottom: 0%;
+      width: 100%;
+      height: 10%;
+    }
+
+    footer {
+      margin-bottom: 15%;
+    }
   }
 </style>
 
 <body class="w3-theme-l5">
 
   <!-- Navbar -->
-  <div class="w3-top">
+  <div style="position:static;" class="w3-top">
     <div style="background-color: black;" class="w3-bar w3-theme-d2 w3-left-align w3-large">
       <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2"
         href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-      <a href="#" style="width: 100px;height: 70px;" class="w3-bar-item  ">
-        <img style="height: 100%;width: 100%;" src="../public/LOGO2.png" alt="LOGO">
+      <a href="#" style="width: 150px;height: 100px;" class="w3-bar-item  ">
+        <img style="height: 100%;width: 100%;" src="../public/WhatsApp Image 2022-03-27 at 11.24.44 PM.png" alt="LOGO">
       </a>
       <a id="News" onclick="m12()" href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
         title="News"><img style="width: 30px; height: 30px;"
-          src="../public/b12edff1ee78b2e794feac4d4dcbfbd41be16d6b7f25dc5dc2e3935de4ced3a7_128x128.png" alt=""></a>
+          src="../public/b12edff1ee78b2e794feac4d4dcbfbd41be16d6b7f25dc5dc2e3935de4ced3a7_128x128.png" alt="">
+        <h5 style="float: right;">EARN WITH VIEWS</h5>
+      </a>
       <a id="Account" onclick="m11()" href="#"
         class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><img
-          style="width: 30px; height: 30px;" src="../public/pngtree-vector-view-icon-png-image_4143925.jpg" alt=""></a>
+          style="width: 30px; height: 30px;" src="../public/pngtree-vector-view-icon-png-image_4143925.jpg" alt="">
+        <h5 style="float: right;">EARN WITH TIME</h5>
+      </a>
       <a id="Account" onclick="m13()" href="#"
         class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><img
-          style="width: 30px; height: 30px;" src="../public/downloadbell.png" alt=""></a>
+          style="width: 30px; height: 30px;" src="../public/downloadbell.png" alt="">
+        <h5 style="float: right;">WITH SHARING and SUBSCRIMBING</h5>
+      </a>
 
 
       <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white"
@@ -75,7 +109,8 @@
   </div>
 
   <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+  <div style="position: fixed; top: 0%;width: 100%;" id="navDemo"
+    class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
     <br>
     <br>
     <br>
@@ -94,13 +129,13 @@
   </div>
 
   <!-- Page Container -->
-  <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
+  <div class="w3-container w3-content" style="max-width:1400px;margin-top:20px">
     <!-- The Grid -->
     <div class="w3-row">
       <!-- Left Column -->
       <div class="w3-col m3">
         <!-- Profile -->
-        <div class="w3-card w3-round w3-white">
+        <div id="Pprofile" class="w3-card w3-round w3-white">
           <div class="w3-container">
             <h4 class="w3-center">My Profile</h4>
             <p class="w3-center"><img src="<%=userClient.Profilephoto%>" class="w3-circle"
@@ -118,79 +153,22 @@
           </div>
         </div>
         <br>
+        <div style=" border: 5px dashed black;" id="Drop" class="w3-card w3-round w3-grey">
+          <div class="w3-container">
+            <h6 class="w3-center"><b>Drop one of the share button here to make a share-link and make more points</b>
+            </h6>
+            <hr>
+
+          </div>
+        </div>
 
         <!-- Accordion -->
-        <div class="w3-card w3-round">
-          <div class="w3-white">
-            <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i
-                class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> My Groups</button>
-            <div id="Demo1" class="w3-hide w3-container">
-              <p>Some text..</p>
-            </div>
-            <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i
-                class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> My Events</button>
-            <div id="Demo2" class="w3-hide w3-container">
-              <p>Some other text..</p>
-            </div>
-            <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i
-                class="fa fa-users fa-fw w3-margin-right"></i> My Photos</button>
-            <div id="Demo3" class="w3-hide w3-container">
-              <div class="w3-row-padding">
-                <br>
-                <div class="w3-half">
-                  <img src="/w3images/lights.jpg" style="width:100%" class="w3-margin-bottom">
-                </div>
-                <div class="w3-half">
-                  <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
-                </div>
-                <div class="w3-half">
-                  <img src="/w3images/mountains.jpg" style="width:100%" class="w3-margin-bottom">
-                </div>
-                <div class="w3-half">
-                  <img src="/w3images/forest.jpg" style="width:100%" class="w3-margin-bottom">
-                </div>
-                <div class="w3-half">
-                  <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
-                </div>
-                <div class="w3-half">
-                  <img src="/w3images/snow.jpg" style="width:100%" class="w3-margin-bottom">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br>
+
 
         <!-- Interests -->
-        <div class="w3-card w3-round w3-white w3-hide-small">
-          <div class="w3-container">
-            <p>Interests</p>
-            <p>
-              <span class="w3-tag w3-small w3-theme-d5">News</span>
-              <span class="w3-tag w3-small w3-theme-d4">W3Schools</span>
-              <span class="w3-tag w3-small w3-theme-d3">Labels</span>
-              <span class="w3-tag w3-small w3-theme-d2">Games</span>
-              <span class="w3-tag w3-small w3-theme-d1">Friends</span>
-              <span class="w3-tag w3-small w3-theme">Games</span>
-              <span class="w3-tag w3-small w3-theme-l1">Friends</span>
-              <span class="w3-tag w3-small w3-theme-l2">Food</span>
-              <span class="w3-tag w3-small w3-theme-l3">Design</span>
-              <span class="w3-tag w3-small w3-theme-l4">Art</span>
-              <span class="w3-tag w3-small w3-theme-l5">Photos</span>
-            </p>
-          </div>
-        </div>
-        <br>
+
 
         <!-- Alert Box -->
-        <div
-          class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
-          <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
-            <i class="fa fa-remove"></i>
-          </span>
-          <p><strong>Hey!</strong></p>
-          <p>People are looking at your profile. Find out who.</p>
-        </div>
 
         <!-- End Left Column -->
       </div>
@@ -206,9 +184,6 @@
             <div>
               <div style="display: none;" id="destroyer">
                 <div id="points1011">
-                  <center>
-                    <h6><b>watch this video and earn points</b></h6>
-                  </center>
                   <div class="players" id="<%=views[0].id%>"></div>
                   <form id="form10" method="post" action="/update/<%=userClient.id%>">
                     <center>
@@ -220,10 +195,33 @@
 
                         <h6 id="points1" name="points"></h6>
 
+
                       </div>
                     </center>
+                    <button style="margin-right: 10%;"
+                      class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                        style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                    <button style="margin-right: 10%;"
+                      class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                        style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                        alt=""></button>
+                    <button style="margin-right: 10%;"
+                      class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                        style="height: 25px; width: 25px;"
+                        src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                    <button style="margin-right: 10%;"
+                      class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                        style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                    <button style="margin-right: 10%;"
+                      class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                        style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
                   </form>
                 </div>
+                <br>
+                <br>
+                <br>
                 <div id="points2022">
                   <div class="players" id="<%=views[1].id%>"></div>
                   <form id="form20" method="post" action="/update/<%=userClient.id%>">
@@ -236,8 +234,30 @@
                         <h6 id="points2"></h6>
                       </div>
                     </center>
+                      <button style="margin-right: 10%;"
+                        class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                          style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                      <button style="margin-right: 10%;"
+                        class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                          style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                          alt=""></button>
+                      <button style="margin-right: 10%;"
+                        class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                          style="height: 25px; width: 25px;"
+                          src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                      <button style="margin-right: 10%;"
+                        class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                          style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                      <button style="margin-right: 10%;"
+                        class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                          style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
                   </form>
                 </div>
+                <br>
+                <br>
+                <br>
                 <div id="points3033">
                   <div class="players" id="<%=views[2].id%>"></div>
                   <form id="form30" method="post" action="/update/<%=userClient.id%>">
@@ -252,8 +272,30 @@
                         <h6 id="points3" name="points"></h6>
                       </div>
                     </center>
+                    <button style="margin-right: 10%;"
+                      class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                        style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                    <button style="margin-right: 10%;"
+                      class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                        style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                        alt=""></button>
+                    <button style="margin-right: 10%;"
+                      class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                        style="height: 25px; width: 25px;"
+                        src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                    <button style="margin-right: 10%;"
+                      class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                        style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                    <button style="margin-right: 10%;"
+                      class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                        style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+
+
                   </form>
                 </div>
+                <br>
+                <br>
+                <br>
                 <div id="points4044">
                   <div class="players" id="<%=views[3].id%>"></div>
                   <form id="form40" method="post" action="/update/<%=userClient.id%>">
@@ -268,9 +310,30 @@
                         </h4>
                         <h6 id="points4" name="points"></h6>
                       </div>
-                    </center>
+                      <button style="margin-right: 10%;"
+                        class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                          style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                      <button style="margin-right: 10%;"
+                        class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                          style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                          alt=""></button>
+                      <button style="margin-right: 10%;"
+                        class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                          style="height: 25px; width: 25px;"
+                          src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                      <button style="margin-right: 10%;"
+                        class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                          style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                      <button style="margin-right: 10%;"
+                        class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                          style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+
+
                   </form>
                 </div>
+                <br>
+                <br>
+                <br>
                 <div id="point5055">
                   <div class="players" id="<%=views[4].id%>"></div>
                   <form id="form50" method="post" action="/update/<%=userClient.id%>">
@@ -284,9 +347,30 @@
                         </h4>
                         <h6 id="points5" name="points"></h6>
                       </div>
-                    </center>
+                    </center> <button style="margin-right: 10%;"
+                      class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                        style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                    <button style="margin-right: 10%;"
+                      class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                        style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                        alt=""></button>
+                    <button style="margin-right: 10%;"
+                      class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                        style="height: 25px; width: 25px;"
+                        src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                    <button style="margin-right: 10%;"
+                      class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                        style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                    <button style="margin-right: 10%;"
+                      class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                        style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
                   </form>
                 </div>
+                <br>
+                <br>
+                <br>
                 <div id="point6066">
                   <div class="players" id="<%=views[5].id%>"></div>
                   <form id="form60" method="post" action="/update/<%=userClient.id%>">
@@ -301,9 +385,30 @@
                         <h6 id="points6" name="points"></h6>
 
                       </div>
-                    </center>
+                    </center> <button style="margin-right: 10%;"
+                      class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                        style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                    <button style="margin-right: 10%;"
+                      class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                        style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                        alt=""></button>
+                    <button style="margin-right: 10%;"
+                      class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                        style="height: 25px; width: 25px;"
+                        src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                    <button style="margin-right: 10%;"
+                      class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                        style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                    <button style="margin-right: 10%;"
+                      class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                        style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+
+
                   </form>
                 </div>
+                <br>
+                <br>
+                <br>
                 <div id="point7077">
                   <div class="players" id="<%=views[6].id%>"></div>
                   <form id="form70" method="post" action="/update/<%=userClient.id%>">
@@ -317,9 +422,31 @@
                         </h4>
                         <h6 id="points7" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="point8088">
                   <div class="players" id="<%=views[7].id%>"></div>
                   <form id="form80" method="post" action="/update/<%=userClient.id%>">
@@ -333,9 +460,31 @@
                         </h4>
                         <h6 id="points8" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="point9099">
                   <div class="players" id="<%=views[8].id%>"></div>
                   <form id="form90" method="post" action="/update/<%=userClient.id%>">
@@ -349,9 +498,31 @@
                         </h4>
                         <h6 id="points9" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="point1001010">
                   <div class="players" id="<%=views[9].id%>"></div>
                   <form id="form100" method="post" action="/update/<%=userClient.id%>">
@@ -365,9 +536,31 @@
                         </h4>
                         <h6 id="points10" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="point1101111">
                   <div class="players" id="<%=views[10].id%>"></div>
                   <form id="form110" method="post" action="/update/<%=userClient.id%>">
@@ -381,9 +574,31 @@
                         </h4>
                         <h6 id="points11" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="point1201212">
                   <div class="players" id="<%=views[11].id%>"></div>
                   <form id="form120" method="post" action="/update/<%=userClient.id%>">
@@ -397,9 +612,31 @@
                         </h4>
                         <h6 id="points12" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="point1301313">
                   <div class="players" id="<%=views[12].id%>"></div>
                   <form id="form130" method="post" action="/update/<%=userClient.id%>">
@@ -413,9 +650,31 @@
                         </h4>
                         <h6 id="points13" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="point1401414">
                   <div class="players" id="<%=views[13].id%>"></div>
                   <form id="form140" method="post" action="/update/<%=userClient.id%>">
@@ -429,9 +688,31 @@
                         </h4>
                         <h6 id="points14" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="point1501515">
                   <div class="players" id="<%=views[14].id%>"></div>
                   <form id="form150" method="post" action="/update/<%=userClient.id%>">
@@ -445,18 +726,38 @@
                         </h4>
                         <h6 id="points15" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
               </div>
 
 
 
               <div style="display: block;" id="destroyer1">
                 <div id="points1001">
-                  <center>
-                    <h6><b>watch this video and earn points</b></h6>
-                  </center>
+
                   <div class="players" id="<%=watchtime[0].id%>"></div>
                   <form id="form1" method="post" action="/updateWatchtime/<%=userClient.id%>">
                     <center>
@@ -468,9 +769,31 @@
                         <h6 id="point1" name="points"></h6>
 
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="points1002">
                   <div class="players" id="<%=watchtime[1].id%>"></div>
                   <form id="form2" method="post" action="/updateWatchtime/<%=userClient.id%>">
@@ -482,9 +805,31 @@
 
                         <h6 id="point2" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="points1003">
                   <div class="players" id="<%=watchtime[2].id%>"></div>
                   <form id="form3" method="post" action="/updateWatchtime/<%=userClient.id%>">
@@ -495,9 +840,31 @@
                         <textarea style="display: none;" name="videoId"><%=watchtime[2].id%>  </textarea>
                         <h6 id="point3" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="points1004">
                   <div class="players" id="<%=watchtime[3].id%>"></div>
                   <form id="forme4" method="post" action="/updateWatchtime/<%=userClient.id%>">
@@ -508,9 +875,31 @@
                         <textarea style="display: none;" name="videoId"><%=watchtime[3].id%>  </textarea>
                         <h6 id="point4" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="points1005">
                   <div class="players" id="<%=watchtime[4].id%>"></div>
                   <form id="form5" method="post" action="/updateWatchtime/<%=userClient.id%>">
@@ -521,9 +910,31 @@
                         <textarea style="display: none;" name="videoId"><%=watchtime[4].id%>  </textarea>
                         <h6 id="point5" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="points1006">
                   <div class="players" id="<%=watchtime[5].id%>"></div>
                   <form id="form6" method="post" action="/updateWatchtime/<%=userClient.id%>">
@@ -534,9 +945,31 @@
                         <textarea style="display: none;" name="videoId"><%=watchtime[5].id%>  </textarea>
                         <h6 id="point6" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="points1007">
                   <div class="players" id="<%=watchtime[6].id%>"></div>
                   <form id="form7" method="post" action="/updateWatchtime/<%=userClient.id%>">
@@ -547,9 +980,31 @@
                         <textarea style="display: none;" name="videoId"><%=watchtime[6].id%>  </textarea>
                         <h6 id="point7" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="points1008">
                   <div class="players" id="<%=watchtime[7].id%>"></div>
                   <form id="form8" method="post" action="/updateWatchtime/<%=userClient.id%>">
@@ -560,9 +1015,31 @@
                         <textarea style="display: none;" name="videoId"><%=watchtime[7].id%>  </textarea>
                         <h6 id="point8" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="points1009">
                   <div class="players" id="<%=watchtime[8].id%>"></div>
                   <form id="form9" method="post" action="/updateWatchtime/<%=userClient.id%>">
@@ -573,9 +1050,31 @@
                         <textarea style="display: none;" name="videoId"><%=watchtime[8].id%>  </textarea>
                         <h6 id="point9" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="points10010">
                   <div class="players" id="<%=watchtime[9].id%>"></div>
                   <form id="form10" method="post" action="/updateWatchtime/<%=userClient.id%>">
@@ -586,9 +1085,31 @@
                         <textarea style="display: none;" name="videoId"><%=watchtime[9].id%>  </textarea>
                         <h6 id="point10" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="points10011">
                   <div class="players" id="<%=watchtime[10].id%>"></div>
                   <form id="form11" method="post" action="/updateWatchtime/<%=userClient.id%>">
@@ -599,9 +1120,31 @@
                         <textarea style="display: none;" name="videoId"><%=watchtime[10].id%>  </textarea>
                         <h6 id="point11" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="points10012">
                   <div class="players" id="<%=watchtime[11].id%>"></div>
                   <form id="form12" method="post" action="/updateWatchtime/<%=userClient.id%>">
@@ -612,9 +1155,31 @@
                         <textarea style="display: none;" name="videoId"><%=watchtime[11].id%>  </textarea>
                         <h6 id="point12" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="points10013">
                   <div class="players" id="<%=watchtime[12].id%>"></div>
                   <form id="form13" method="post" action="/updateWatchtime/<%=userClient.id%>">
@@ -625,9 +1190,31 @@
                         <textarea style="display: none;" name="videoId"><%=watchtime[12].id%>  </textarea>
                         <h6 id="point13" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="points10014">
                   <div class="players" id="<%=watchtime[13].id%>"></div>
                   <form id="form14" method="post" action="/updateWatchtime/<%=userClient.id%>">
@@ -638,9 +1225,31 @@
                         <textarea style="display: none;" name="videoId"><%=watchtime[13].id%>  </textarea>
                         <h6 id="point14" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
                 <div id="points10015">
                   <div class="players" id="<%=watchtime[14].id%>"></div>
                   <form id="form15" method="post" action="/updateWatchtime/<%=userClient.id%>">
@@ -651,22 +1260,67 @@
                         <textarea style="display: none;" name="videoId"><%=watchtime[14].id%>  </textarea>
                         <h6 id="point15" name="points"></h6>
                       </div>
-                    </center>
-                  </form>
-                </div>
+                    </center> <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                      alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;"
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                  <button style="margin-right: 10%;"
+                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+
+
+                </form>
+              </div>
+              <br>
+              <br>
+              <br>
+
               </div>
               <div style="display:none ;" id="destroyer3">
                 <% subscribe.forEach( (subscribe)=>{%>
                   <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-                    <h4><%=subscribe.ChannelName%></h4><br>
+                    <h4>
+                      <%=subscribe.ChannelName%>
+                    </h4><br>
                     <hr class="w3-clear">
-                    <p><%=subscribe.Discription%></p>
+                    <p>
+                      <%=subscribe.Discription%>
+                    </p>
                     <br>
-                    <a href="<%=subscribe.ChannelUrl%>?sub_confirmation=1"><button onclick="" class="w3-button w3-black"><b>subscribe</b></button></a>
+                    <a href="<%=subscribe.ChannelUrl%>?sub_confirmation=1"><button onclick=""
+                        class="w3-button w3-black"><b>subscribe</b></button></a>
+                        <button style="margin-right: 2%;margin-left: 2%;"
+                        class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                          style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                      <button style="margin-right: 2%;margin-left: 2%;"
+                        class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                          style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
+                          alt=""></button>
+                      <button style="margin-right: 2%;margin-left: 2%;"
+                        class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                          style="height: 25px; width: 25px;"
+                          src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                      <button style="margin-right: 2%;margin-left: 2%;"
+                        class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                          style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
+                      <button style="margin-right: 2%;"
+                        class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
+                          style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+  
                     <br>
                     <br>
                   </div>
-    
+
                   <%})%>
               </div>
 
@@ -1444,10 +2098,18 @@
         </div>
         <br>
 
-        <div class="w3-card w3-round w3-white w3-center">
-          <div class="w3-container">
 
+        <div class="w3-container">
+          <div
+            class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
+            <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
+              <i class="fa fa-remove"></i>
+            </span>
+            <p><strong>Hey!</strong></p>
+            <p>People are looking at your profile. Find out who.</p>
           </div>
+
+
         </div>
         <br>
 
@@ -1468,7 +2130,7 @@
   <br>
 
   <!-- Footer -->
-  <footer class="w3-container w3-theme-d3 w3-padding-16">
+  <footer style="height: 10vw;" class="w3-container w3-theme-d3 w3-padding-16">
     <h5>Footer</h5>
   </footer>
 
