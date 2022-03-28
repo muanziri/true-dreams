@@ -1,7 +1,7 @@
 const passport2=require('passport');
 
 const usersClients=require('../models/usersClients')
-require('dotenv').config();
+//require('dotenv').config();
 
 var GoogleStrategy2 = require( 'passport-google-oauth2' ).Strategy;
 

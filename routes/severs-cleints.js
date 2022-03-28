@@ -204,5 +204,30 @@ router.post('/buyerLogin1',async(req,res)=> {
 
 
 })
+router.get('/index',(req,res)=>{
+    
+    res.render('index')
+})
+router.post('/sendMessage',(req,res)=>{
+     
+     const message= req.body.message
+    
+    const accountSid = 'AC75de2e14fed9a457631274f3297f4fd9'; 
+    const authToken = '563b3544d51032f26e9bcab9dea6d45d'; 
+    const client = require('twilio')(accountSid, authToken); 
+     
+    client.messages 
+          .create({ 
+             body: message, 
+             from: 'whatsapp:+14155238886',       
+             to: 'whatsapp:+250783987223' 
+           }) 
+            .then((message) => {console.log(message.sid);  res.send('<h1>successfull sent</h1>')}) 
+          .done();
+   
+      
+        
+})
+
 
 module.exports=router;

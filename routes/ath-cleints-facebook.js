@@ -1,6 +1,7 @@
 const passport3=require('passport');
 const usersClients=require('../models/usersClients')
-require('dotenv').config();
+
+//require('dotenv').config();
 
 var FacebookStrategy = require( 'passport-facebook' ).Strategy;
 passport3.serializeUser((usersClients,done)=>{
