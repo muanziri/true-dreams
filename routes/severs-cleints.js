@@ -7,7 +7,7 @@ const buyerClient=require('../models/buyerClient')
 const Views=require('../models/commodities/views')
 const watchtime=require('../models/commodities/watchtime');
 const subscribe=require('../models/commodities/subscribe');
-const {user}=require('./passport-local');
+//const {user}=require('./passport-local');
 
 
 require('./ath-cleints');
