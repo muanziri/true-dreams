@@ -1,13 +1,13 @@
 const Express=require('express');
 const passport=require('passport')
-const bcrypt=require('bcrypt')
+const argon2=require('argon2')
 const router=Express.Router();
 const userClient=require('../models/usersClients');
 const buyerClient=require('../models/buyerClient')
 const Views=require('../models/commodities/views')
 const watchtime=require('../models/commodities/watchtime');
 const subscribe=require('../models/commodities/subscribe');
-//const {user}=require('./passport-local');
+const {user}=require('./passport-local');
 
 
 require('./ath-cleints');
@@ -190,7 +190,7 @@ router.post('/buyerLogin1',async(req,res)=> {
  
   
     try {
-        const hashedPassword= await bcrypt.hash(req.body.password,10);
+        const hashedPassword= await argon2.hash(req.body.password,10);
         new buyerClient({
           Email:req.body.email,
           phoneNumber:req.body.phone,
