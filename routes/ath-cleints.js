@@ -29,7 +29,7 @@ var GOOGLE_CLIENT_SECRET=process.env.GOOGLESEC2
 passport2.use(new GoogleStrategy2({
     clientID:     GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/callback",
+    callbackURL: "https://true-dreams.herokuapp.com/google/callback",
     passReqToCallback   : true
   },
   function(request, accessToken, refreshToken, profile, done) {

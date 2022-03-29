@@ -18,7 +18,7 @@ var FACEBOOK_APP_SECRET=process.env.FACEBOOKSEC2;
 passport3.use(new FacebookStrategy({
   clientID: FACEBOOK_APP_ID,
   clientSecret: FACEBOOK_APP_SECRET,
-  callbackURL: "http://localhost:3000/auth/facebook/callback",
+  callbackURL: "https://true-dreams.herokuapp.com/facebook/callback",
     profileFields   :['id','displayName','name','gender','picture.type(large)','email']
   },
   function(request, refreshToken, profile, done) {
