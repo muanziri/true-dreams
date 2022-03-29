@@ -1,6 +1,6 @@
 const Express=require('express');
 const passport=require('passport')
-const argon2=require('argon2')
+const bcrypt=require('bcrypt')
 const router=Express.Router();
 const userClient=require('../models/usersClients');
 const buyerClient=require('../models/buyerClient')
@@ -190,7 +190,7 @@ router.post('/buyerLogin1',async(req,res)=> {
  
   
     try {
-        const hashedPassword= await argon2.hash(req.body.password,10);
+        const hashedPassword= await bcrypt.hash(req.body.password,10);
         new buyerClient({
           Email:req.body.email,
           phoneNumber:req.body.phone,
