@@ -38,6 +38,15 @@ router.get( '/auth/google/callback',
         successRedirect: '/auth/google/success',
         failureRedirect: '/auth/google/failure'
 }));
+router.get('/auth/twitter',
+  passport.authenticate('twitter', { scope:
+      [ 'email', 'profile' ] }
+));
+router.get( '/auth/twitter/callback',
+    passport.authenticate( 'twitter', {
+        successRedirect: '/auth/twitter/success',
+        failureRedirect: '/auth/twitter/failure'
+}));
 
 
 
@@ -77,6 +86,15 @@ router.get('/auth/google/success',(req,res)=>{
 })
 
 router.get('/auth/google/failure',(req,res)=>{
+    res.redirect('/login');
+
+})
+router.get('/auth/twitter/success',(req,res)=>{
+    res.redirect('/seller');
+
+})
+
+router.get('/auth/twitter/failure',(req,res)=>{
     res.redirect('/login');
 
 })
