@@ -180,7 +180,7 @@
                    
                   %>  
                 <div id="points1011">
-                  <div class="players" id="<%=views[0].id%>"></div>
+                  <div class="players" id="player1"></div>
                   <form id="form10" method="post" action="/update/<%=userClient.id%>">
                     <center>
                       <div
@@ -226,7 +226,7 @@
                   %>
                 <div id="points1001">
 
-                  <div class="players" id="<%=watchtime[0].id%>"></div>
+                  <div class="players" id="player2"></div>
                   <form id="form1" method="post" action="/updateWatchtime/<%=userClient.id%>">
                     <center>
                       <div
@@ -320,7 +320,7 @@
                let vid=Math.floor(Math.random() * 10);
                 //var Vid=Math.floor(Math.random() * 16);
                 function onYouTubeIframeAPIReady() {
-                  player1 = new YT.Player('<%=views[0].id%>', {
+                  player1 = new YT.Player('player1', {
                     height: '100%',
                     width: '100%',
                     videoId: '<%=views[vid].videoId%>',
@@ -330,7 +330,7 @@
                       'onStateChange': onPlayerStateChange
                     }
                   });
-                  player16 = new YT.Player('<%=watchtime[0].id%>', {
+                  player16 = new YT.Player('player2', {
                     height: '100%',
                     width: '100%',
                     videoId: '<%=watchtime[vid].videoId%>',
