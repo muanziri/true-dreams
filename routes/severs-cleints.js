@@ -111,7 +111,7 @@ router.get('/',(req,res)=>{
 
 
 
-router.get('/seller',check,(req,res)=>{
+router.get('/seller',(req,res)=>{
     let user1= req.user.googleid;
     userClient.findOne({googleid:user1}).then((results)=>{
         Views.find().then((results2)=>{
