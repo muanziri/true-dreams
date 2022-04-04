@@ -153,14 +153,7 @@
           </div>
         </div>
         <br>
-        <div   class="w3-card w3-round w3-grey">
-          <div class="w3-container">
-            <h6 class="w3-center"><b>advert</b>
-            </h6>
-            <hr>
-
-          </div>
-        </div>
+        
 
         <!-- Accordion -->
 
@@ -183,14 +176,17 @@
 
             <div>
               <div style="display: none;" id="destroyer">
+                <% if (views) {
+                   var Vit=Math.floor(Math.random() * 16);
+                  %>  
                 <div id="points1011">
-                  <div class="players" id="<%=views[0].id%>"></div>
+                  <div class="players" id="<%=views[Vit].id%>"></div>
                   <form id="form10" method="post" action="/update/<%=userClient.id%>">
                     <center>
                       <div
                         style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
                         <h4 id="points1011">seconds</h4>
-                        <textarea style="display: none;" name="videoId"><%=views[0].id%>  </textarea>
+                        <textarea style="display: none;" name="videoId"><%=views[Vit].id%>  </textarea>
 
 
                         <h6 id="points1" name="points"></h6>
@@ -219,45 +215,50 @@
 
                   </form>
                 </div>
+                <%}%>
                 <br>
                 <br>
                 <br>
                 </div>
               <div style="display: block;" id="destroyer1">
+                <% if (watchtime){ 
+                  var Vid=Math.floor(Math.random() * 16);
+                  %>
                 <div id="points1001">
 
-                  <div class="players" id="<%=watchtime[0].id%>"></div>
+                  <div class="players" id="<%=watchtime[Vid].id%>"></div>
                   <form id="form1" method="post" action="/updateWatchtime/<%=userClient.id%>">
                     <center>
                       <div
                         style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
                         <h4>seconds</h4>
-                        <textarea style="display: none;" name="videoId"><%=watchtime[0].id%>  </textarea>
+                        <textarea style="display: none;" name="videoId"><%=watchtime[Vid].id%>  </textarea>
 
                         <h6 id="point1" name="points"></h6>
 
                       </div>
-                    </center> <button style="margin-right: 10%;"
-                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
-                      style="height: 25px; width: 25px;" src="../public/2021_Facebook_icon.jpg" alt=""></button>
+                    </center> 
+                    <a href="https://t.me/share/url?url=${<%=watchtime[Vid].id%>}.%{whatch the video and earn money}">
                   <button style="margin-right: 10%;"
                     class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
                       style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
-                      alt=""></button>
-                  <button style="margin-right: 10%;"
+                      alt=""></button></a>
+                  <a href="https://wa.me/?text=${<%=watchtime[Vid].id%>}.%{whatch the video and earn money}"><button style="margin-right: 10%;"
                     class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
                       style="height: 25px; width: 25px;"
-                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button>
+                      src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button></a>
+                   
+                      <a href="https://twitter.com/intent/tweet?text=${<%=watchtime[Vid].id%>}.%{whatch the video and earn money}"
+                      data-size="large">
                   <button style="margin-right: 10%;"
                     class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
-                      style="height: 25px; width: 25px;" src="../public/instagram-icon.jpg" alt=""></button>
-                  <button style="margin-right: 10%;"
-                    class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
-                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button>
+                      style="height: 25px; width: 25px;" src="../public/Twitter-Logo.png" alt=""></button></a>
 
 
                 </form>
               </div>
+            
+              <%}%>
               <br>
               <br>
               <br>
