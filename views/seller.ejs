@@ -317,12 +317,13 @@
 
                 let player1;
                 let player16;
+               let vid=Math.floor(Math.random() * 10);
                 //var Vid=Math.floor(Math.random() * 16);
                 function onYouTubeIframeAPIReady() {
                   player1 = new YT.Player('<%=views[0].id%>', {
                     height: '100%',
                     width: '100%',
-                    videoId: '<%=views[0].videoId%>',
+                    videoId: '<%=views[vid].videoId%>',
 
                     events: {
                       'onReady': onPlayerReady,
@@ -332,7 +333,7 @@
                   player16 = new YT.Player('<%=watchtime[0].id%>', {
                     height: '100%',
                     width: '100%',
-                    videoId: '<%=watchtime[0].videoId%>',
+                    videoId: '<%=watchtime[vid].videoId%>',
 
                     events: {
                       'onReady': onPlayerReady,
