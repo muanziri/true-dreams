@@ -181,7 +181,7 @@
                   %>  
                 <div id="points1011">
                   <div class="players" id="player1"></div>
-                  <form id="form10" method="post" action="/update/<%=userClient.id%>">
+                  <form id="form" method="post" action="/update/<%=userClient.id%>">
                     <center>
                       <div
                         style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
@@ -323,7 +323,7 @@
                   player1 = new YT.Player('player1', {
                     height: '100%',
                     width: '100%',
-                    videoId: '<%=views[Math.floor(Math.random() * 16)].videoId%>',
+                    videoId: '<%=views[Math.floor(Math.random() * 15)].videoId%>',
 
                     events: {
                       'onReady': onPlayerReady,
@@ -333,7 +333,7 @@
                   player16 = new YT.Player('player2', {
                     height: '100%',
                     width: '100%',
-                    videoId: '<%=watchtime[Math.floor(Math.random() * 16)].videoId%>',
+                    videoId: '<%=watchtime[Math.floor(Math.random() * 15)].videoId%>',
 
                     events: {
                       'onReady': onPlayerReady,
@@ -373,9 +373,9 @@
                      
                       let point1 = player16.getCurrentTime()
                       let realPoint1 = Math.round(point1) - 60
-
+                      let seek=player16.seekTo({seconds:5, allowSeekAhead:true})
                       document.getElementById('point1').innerHTML = realPoint1;
-                      if (realPoint1 > 0) {
+                      if (realPoint1 > 0&& !seek) {
 
                         player16.stopVideo();
                         document.getElementById('form1').submit();
@@ -477,17 +477,11 @@
   </footer>
 
   <script>
-    // Accordion
-    let theSTORAGE1 = sessionStorage.getItem('name');
-    let NAME1 = 'MUNAZIRI'
-    if (theSTORAGE1 == NAME1) {
-      document.getElementById('points1011').style.display = 'none'
-
-    }
     window.setTimeout(myFunction, 5000);
      function myFunction() {
   alert('Hello');
       }
+   
 
 
     function myFunction(id) {
