@@ -323,6 +323,7 @@
                   player1 = new YT.Player('player1', {
                     height: '100%',
                     width: '100%',
+                    playerVars: {'controls': 0 },
                     videoId: '<%=views[Math.floor(Math.random() * 15)].videoId%>',
 
                     events: {
@@ -334,7 +335,7 @@
                     height: '100%',
                     width: '100%',
                     videoId: '<%=watchtime[Math.floor(Math.random() * 15)].videoId%>',
-
+                    playerVars: {'controls': 0 },
                     events: {
                       'onReady': onPlayerReady,
                       'onStateChange': onPlayerStateChange
@@ -374,8 +375,8 @@
                       let point1 = player16.getCurrentTime()
                       let realPoint1 = Math.round(point1) - 60
                       let seek=player16.seekTo({seconds:5, allowSeekAhead:true})
-                      document.getElementById('point1').innerHTML = realPoint1;
-                      if (realPoint1 > 0&& !seek) {
+                    
+                      if (realPoint1 > 0) {
 
                         player16.stopVideo();
                         document.getElementById('form1').submit();
