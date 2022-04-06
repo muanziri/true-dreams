@@ -29,8 +29,7 @@ var TWITTER_CLIENT_SECRET=process.env.TWITTERSEC4
 passport3.use(new TwitterStrategy({
   consumerKey:     TWITTER_CLIENT_ID,
   consumerSecret: TWITTER_CLIENT_SECRET,
-    callbackURL: "https://true-dreams.herokuapp.com/auth/twitter/callback",
-    passReqToCallback   : true
+    callbackURL: "https://true-dreams.herokuapp.com/auth/twitter/callback"
   },
   function(request, accessToken, refreshToken, profile, done) {
          
