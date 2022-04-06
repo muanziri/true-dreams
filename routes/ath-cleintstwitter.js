@@ -1,17 +1,17 @@
-const passport2=require('passport');
+const passport3=require('passport');
 
 const usersClients=require('../models/usersClients')
 //require('dotenv').config();
 
 var TwitterStrategy = require( 'passport-twitter' ).Strategy;
 
-passport2.serializeUser((user1 ,done)=>{
+passport3.serializeUser((user1 ,done)=>{
  
    done(null,user1.id);
    
 
 })
-passport2.deserializeUser((id,done)=>{
+passport3.deserializeUser((id,done)=>{
   
   usersClients.findById(id).then((user)=>{
     
