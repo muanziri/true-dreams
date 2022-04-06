@@ -26,7 +26,7 @@ passport3.deserializeUser((id,done)=>{
 
 var TWITTER_CLIENT_ID=process.env.TWITTERSEC3
 var TWITTER_CLIENT_SECRET=process.env.TWITTERSEC4
-passport2.use(new TwitterStrategy({
+passport3.use(new TwitterStrategy({
     clientID:     TWITTER_CLIENT_ID,
     clientSecret: TWITTER_CLIENT_SECRET,
     callbackURL: "https://true-dreams.herokuapp.com/auth/twitter/callback",
