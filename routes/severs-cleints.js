@@ -225,6 +225,10 @@ router.post('/buyerLogin1',async(req,res)=> {
 
 
 })
+router.get('/verify',(req,res)=>{
+    
+    res.render('verifyNumber')
+})
 router.get('/index',(req,res)=>{
     
     res.render('index')
