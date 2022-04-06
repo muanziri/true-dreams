@@ -335,7 +335,7 @@
                     height: '100%',
                     width: '100%',
                     videoId: '<%=watchtime[Math.floor(Math.random() * 15)].videoId%>',
-                    playerVars: {'controls': 0 },
+                    playerVars: {'controls': 0 ,'seek':0},
                     events: {
                       'onReady': onPlayerReady,
                       'onStateChange': onPlayerStateChange
