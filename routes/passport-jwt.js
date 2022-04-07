@@ -1,7 +1,7 @@
 const bcrypt=require('bcrypt');
 const buyerClient=require('../models/buyerClient');
 const passport=require('passport')
-const passportLocal=require('passport-local').Strategy;
+const passportLocal=require('passport-jwt').Strategy;
 
 
 

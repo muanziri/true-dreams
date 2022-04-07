@@ -14,7 +14,7 @@ require('./ath-cleints');
 
 require('./ath-cleints-facebook');
 require('./ath-cleintstwitter');
-require('./passport-local');
+require('./passport-jwt');
 
 
 

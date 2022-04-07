@@ -173,6 +173,18 @@
           </div>
         </div>
         <br>
+        <div class="w3-container">
+          <div
+            class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
+            <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
+              <i class="fa fa-remove"></i>
+            </span>
+            <p><strong>Hey!</strong></p>
+            <p>People are looking at your profile. Find out who.</p>
+          </div>
+
+
+        </div>
         
 
         <!-- Accordion -->
@@ -258,17 +270,17 @@
 
                       </div>
                     </center> 
-                    <a href="https://t.me/share/url?url=${<%=watchtime[0].id%>}.%{whatch the video and earn money}">
+                    <a href="https://t.me/share/url?url=<%=watchtime[0].id%>">
                   <button style="margin-right: 10%;"
                     class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
                       style="height: 25px; width: 25px;" src="../public/telegram-logo-circle-1024x1024.png"
                       alt=""></button></a>
-                  <a href="https://wa.me/?text=${<%=watchtime[0].id%>}.%{whatch the video and earn money}"><button style="margin-right: 10%;"
+                  <a href="https://wa.me/?text=<%=watchtime[0].id%>"><button style="margin-right: 10%;"
                     class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
                       style="height: 25px; width: 25px;"
                       src="../public/valencia-spain-march-05-2017-260nw-593508881.webp" alt=""></button></a>
                    
-                      <a href="https://twitter.com/intent/tweet?text=${<%=watchtime[0].id%>}.%{whatch the video and earn money}"
+                      <a href="https://twitter.com/intent/tweet?text=<%=watchtime[0].id%>"
                       data-size="large">
                   <button style="margin-right: 10%;"
                     class="w3-button w3-light-grey w3-border w3-border-black w3-round-large"><img
@@ -458,19 +470,6 @@
         <br>
 
 
-        <div class="w3-container">
-          <div
-            class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
-            <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
-              <i class="fa fa-remove"></i>
-            </span>
-            <p><strong>Hey!</strong></p>
-            <p>People are looking at your profile. Find out who.</p>
-          </div>
-
-
-        </div>
-        <br>
 
         <div style="height: 25vw;" class="w3-card w3-round w3-white w3-padding-16 w3-center">
           <p>ADS</p>
@@ -487,28 +486,22 @@
     <!-- End Page Container -->
   </div>
   <br>
-  <div style="color: white; background-color: black;" id="id01" class="modal">
+  <div style="color: white; background-color: rgba(0, 0, 0, 0.459);" id="id01" class="modal">
         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
         <form class="modal-content" action="/buyerLogin1" method="post">
           <div class="container2">
             <center><h1>Sign Up</h1></center>
             <p>Please fill in this form to create an account.</p>
             <hr>
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required>
-      
            
             <label for="psw-repeat"><b>Phone Number</b></label>
             <input type="text" placeholder="+2507...." name="phone" required>
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password" required>
-      
-      
-            <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+          
+            <label for="psw-repeat"><b>OTP CODE</b></label>
+            <input type="text" name="OTPCODE" placeholder="OTP CODE"  required>
 
-            <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+           
       
             <div class="clearfix">
               <button style="height: 50px ;border: none;"  type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
