@@ -226,7 +226,7 @@ router.post('/buyerLogin1',async(req,res)=> {
     try {
         const hashedPassword= await bcrypt.hash(req.body.password,10);
         new buyerClient({
-         userName:req.body.userName,  
+          userName:req.body.userName,  
           Email:req.body.email,
           phoneNumber:req.body.phone,
           password: hashedPassword 
