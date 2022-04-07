@@ -8,6 +8,7 @@ var opts = {}
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = process.env.JWTSecret;
 passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
+    console.log(jwt_payload)
     buyerClient.findOne({id: jwt_payload.id}, function(err, user) {
         if (err) {
             return done(err, false);
