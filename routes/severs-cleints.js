@@ -7,6 +7,7 @@ const buyerClient=require('../models/buyerClient')
 const Views=require('../models/commodities/views')
 const watchtime=require('../models/commodities/watchtime');
 const subscribe=require('../models/commodities/subscribe');
+var jwt = require('jsonwebtoken');
 //const {user}=require('./passport-local');
 
 
@@ -101,10 +102,7 @@ router.get('/auth/twitter/failure',(req,res)=>{
     res.redirect('/login');
 
 })
-router.get('/buyer',check2,(req,res)=>{
-    
-    res.render('buyer')
-})
+
 
 router.get('/',(req,res)=>{
       
@@ -202,17 +200,33 @@ router.get('/buyerLogin',(req,res)=>{
     
     res.render('buyerLogin')
 })
-router.post('/buyerLogin',passport.authenticate('local',{
-       successRedirect:'/buyer',
-       failureRedirect:'/buyerLogin',
-       failureFlash: true
-}))
+router.post('/buyerLogin',(req,res)=>{
+    buyerClient.findOne({userName:req.body.userName}).then((user)=>{
+     if(!user){
+           return res.status(401).send({success:false,message:"this user don't exist please signup"})
+        }
+    if(!bcrypt.compareSync(req.body.password,user.password)){
+        return res.status(401).send({success:false,message:"incorrect password"})
+    }   
+    })
+    const payload={
+        userName:user.userName,
+        id:user._id
+    }
+  const token= jwt.sign(payload, process.env.JWTSecret, {expiresIn:"1d"})
+    res.status(200).send({success:true,token:"Bearer "+token})
+})
+router.get('/buyer',passport.authenticate('jwt', { session: false }),(req,res)=>{
+    
+    res.render('buyer')
+})
 router.post('/buyerLogin1',async(req,res)=> {
  
   
     try {
         const hashedPassword= await bcrypt.hash(req.body.password,10);
         new buyerClient({
+         userName:req.body.userName,  
           Email:req.body.email,
           phoneNumber:req.body.phone,
           password: hashedPassword 

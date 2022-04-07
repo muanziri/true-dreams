@@ -1,43 +1,22 @@
-const bcrypt=require('bcrypt');
+
 const buyerClient=require('../models/buyerClient');
 const passport=require('passport')
-const passportLocal=require('passport-jwt').Strategy;
 
-
-
-passport.use(new passportLocal({
-  usernameField:'email',
-  passwordField:'password'
-
-},
-  function(email, password, done) {
-    buyerClient.findOne({ Email: email },async function (err, user) {
-      if (!user) { return done(null, false,{message:'no user found pliz signup'}); }else{
-      const thepassword=await bcrypt.compare(password,user.password)
-      
-      if (err) { return done(err); }
-      if (!thepassword) { return done(null, false,{message:'wrong password'}); }
-      if(user&& password){
-       
-        return done(null, user);
-      }
-      }
+const JwtStrategy = require('passport-jwt').Strategy,
+    ExtractJwt = require('passport-jwt').ExtractJwt;
+var opts = {}
+opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+opts.secretOrKey = process.env.JWTSecret;
+passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
+    buyerClient.findOne({id: jwt_payload.id}, function(err, user) {
+        if (err) {
+            return done(err, false);
+        }
+        if (user) {
+            return done(null, user);
+        } else {
+            return done(null, false);
+            // or you could create a new account
+        }
     });
-  }
-));
-  passport.serializeUser((user ,done)=>{
-    
-    done(null,user.id);
-    
- })
- passport.deserializeUser((id,done)=>{
-   
-  buyerClient.findById(id).then((user)=>{
-   
-     done(null,user);
-   
-   })
-   
- })
- 
-
+}));
