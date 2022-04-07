@@ -203,10 +203,11 @@ router.get('/buyerLogin',(req,res)=>{
 router.post('/buyerLogin',(req,res)=>{
     buyerClient.findOne({userName:req.body.userName}).then((user)=>{
      if(!user){
-           return res.status(401).send({success:false,message:"this user don't exist please signup"})
-        }
+           return res.status(401)
+           req.flash('info','no user found matching')        }
     if(!bcrypt.compareSync(req.body.password,user.password)){
-        return res.status(401).send({success:false,message:"incorrect password"})
+        return res.status(401)
+        req.flash('info','incorrect password')
     }   
     })
     const payload={
