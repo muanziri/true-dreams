@@ -202,7 +202,7 @@ router.get('/buyerLogin',(req,res)=>{
 })
 router.post('/buyerLogin',(req,res)=>{
     buyerClient.findOne({userName:req.body.userName}).then((user)=>{
-     if(!user){
+     if(user==null){
            return res.status(401)
            req.flash('info','no user found matching')        }
     if(!bcrypt.compareSync(req.body.password,user.password)){
