@@ -1,6 +1,6 @@
 const Express=require('express')
 const mongoose=require('mongoose');
-const Flash=require('express-flash');
+const flash=require('express-flash');
 const passport=require('passport');
 const cookieSession=require('cookie-session')
 require('dotenv').config();
@@ -29,7 +29,7 @@ app.use(cookieSession({
   // Cookie Options
   maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }))
-app.use(Flash())
+app.use(flash())
 
  app.listen(port,()=>{console.log('connected')});
  app.use(Express.urlencoded({extended: true}));

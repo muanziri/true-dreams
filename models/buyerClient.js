@@ -16,6 +16,72 @@ const UserSchema=new schema({
         type:String,
         required:true
     },
+    token:{
+        type:String,
+        required:true
+    },
+    link1:{
+        type:String,
+        default:'unpayed'
+    },
+    link2:{
+        type:String,
+        default:'unpayed'
+    },
+    link3:{
+        type:String,
+        default:'unpayed'
+    },
+    link4:{
+        type:String,
+        default:'unpayed'
+    },
+    link5:{
+        type:String,
+        default:'unpayed'
+    },
+    link6:{
+        type:String,
+        default:'unpayed'
+    },
+    link7:{
+        type:String,
+        default:'unpayed'
+    },
+    link8:{
+        type:String,
+        default:'unpayed'
+    },
+    link9:{
+        type:String,
+        default:'unpayed'
+    },
+    link10:{
+        type:String,
+        default:'unpayed'
+    },
+    link11:{
+        type:String,
+        default:'unpayed'
+    },
+    link12:{
+        type:String,
+        default:'unpayed'
+    },
+    link13:{
+        type:String,
+        default:'unpayed'
+    },
+    link14:{
+        type:String,
+        default:'unpayed'
+    },
+    link15:{
+        type:String,
+        default:'unpayed'
+    },
+    
+    
     phoneNumber:{
         type:Number,
         required:true,

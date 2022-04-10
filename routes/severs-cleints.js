@@ -8,14 +8,13 @@ const Views=require('../models/commodities/views')
 const watchtime=require('../models/commodities/watchtime');
 const subscribe=require('../models/commodities/subscribe');
 var jwt = require('jsonwebtoken');
-//const {user}=require('./passport-local');
 
 
 require('./ath-cleints');
 
 require('./ath-cleints-facebook');
 require('./ath-cleintstwitter');
-require('./passport-jwt');
+
 
 
 
@@ -200,29 +199,26 @@ router.get('/buyerLogin',(req,res)=>{
     
     res.render('buyerLogin')
 })
-router.post('/buyerLogin',(req,res)=>{
+router.post('/buyerLogin', (req,res)=>{
     buyerClient.findOne({userName:req.body.userName}).then((user)=>{
-     if(user==null){
-           return res.status(401)
-           req.flash('info','no user found matching')        }
-    if(!bcrypt.compareSync(req.body.password,user.password)){
-        return res.status(401)
-        req.flash('info','incorrect password')
-    }   
+    const truePassword=  bcrypt.compareSync(req.body.password,user.password)
+    const verify= jwt.verify(user.token,truePassword.toString())
+     if(user){
+     if(truePassword){  
+      if(verify) {
+      res.render('buyer')
+      }else{req.flash('error','incorrect password');res.redirect('/buyerLogin')}
+    }else{req.flash('error','incorrect password');res.redirect('/buyerLogin')}      
+    }else{req.flash('error','this user is invalid');res.redirect('/buyerLogin')}
+      
     })
-    const payload={
-        userName:user.userName,
-        id:user._id
-    }
-  const token= jwt.sign(payload, process.env.JWTSecret, {expiresIn:"1d"})
-    res.status(200).send({success:true,token:"Bearer "+token})
-})
-router.get('/buyer',passport.authenticate('jwt', { session: false }),(req,res)=>{
-    
-    res.render('buyer')
 })
 router.post('/buyerLogin1',async(req,res)=> {
- 
+    const payload={
+      userName:req.body.userName,
+      password:req.body.password
+    }
+  const token= jwt.sign(payload, process.env.JWTSecret)
   
     try {
         const hashedPassword= await bcrypt.hash(req.body.password,10);
@@ -230,8 +226,9 @@ router.post('/buyerLogin1',async(req,res)=> {
           userName:req.body.userName,  
           Email:req.body.email,
           phoneNumber:req.body.phone,
-          password: hashedPassword 
-        }).save().then((results)=>{
+          password: hashedPassword,
+          token:token 
+        }).save().then((results)=>{    
         res.redirect('/buyerLogin')
       })
     } catch (error) {
