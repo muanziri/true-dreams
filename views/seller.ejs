@@ -113,7 +113,7 @@
       </a>
 
 
-      <a onclick="document.getElementById('mugeni').style.display='block'" style="border-radius:12px;" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white">
+      <a onclick="document.getElementById('mugeni').classList.toggle('show')" style="border-radius:12px;" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white">
         <img src="<%=userClient.Profilephoto%>" class="w3-circle" style="height:23px;width:23px" alt="Avatar">
       </a>
       <div id="mugeni" class="w3-ul" style=" display: none; height: fit-content; width:fit-content; background-color: white; position: absolute; top: 50px; right: 5px;border-radius:12px;">
@@ -517,10 +517,18 @@
   </footer>
 
   <script>
-    window.addEventListener('click',()=>{
-      document.getElementById('mugeni').style.display='none';
-
-    })
+    window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsById("mugeni");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
      function triFunction() {
         document.getElementById("id01").style.display='block';
       }
