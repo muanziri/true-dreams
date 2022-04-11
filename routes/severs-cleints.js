@@ -206,7 +206,7 @@ router.post('/buyerLogin', (req,res)=>{
      if(user){
      if(truePassword){  
       if(verify) {
-      res.render('buyer')
+      res.render('buyer',{User:user})
       }else{req.flash('error','incorrect password');res.redirect('/buyerLogin')}
     }else{req.flash('error','incorrect password');res.redirect('/buyerLogin')}      
     }else{req.flash('error','this user is invalid');res.redirect('/buyerLogin')}

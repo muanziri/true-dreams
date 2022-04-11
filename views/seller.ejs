@@ -58,21 +58,13 @@
     height: 25%;
   }
 
-  #Pprofile {
-    position: fixed;
-    width: 24%;
-  }
 
   @media screen and (max-width:500px) {
     #Right {
       position: static;
     }
 
-    #Pprofile {
-      position: static;
-      width: 100%;
-
-    }
+  
 
     .players {
       width: 100%;
@@ -155,7 +147,7 @@
       <!-- Left Column -->
       <div class="w3-col m3">
         <!-- Profile -->
-        <div id="Pprofile" class="w3-card w3-round w3-white">
+        <div  class="w3-card w3-round w3-white">
           <div class="w3-container">
             <h4 class="w3-center">My Profile</h4>
             <p class="w3-center"><img src="<%=userClient.Profilephoto%>" class="w3-circle"

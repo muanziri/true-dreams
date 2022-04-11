@@ -182,7 +182,7 @@
     }
   </style>
 </head>
-
+<% if(User) {%> 
 <body class="w3-light-grey">
 
   <!-- Top container -->
@@ -206,7 +206,8 @@
             src="../public/LOGO2.png"
             class="w3-circle w3-margin-right" style="width:150px"></div>
           <div class="w3-clear"></div>
-          <h4>Urakaza neza Munaziri</h4>
+          <h4>Urakaza neza</h4>
+          <h2><b><%=User.userName%> </b></h2>
         </div>
       </div>
      
@@ -248,7 +249,7 @@
       <div class="w3-row-padding" style="margin:0 -16px">
         <div style="width:100%" class="w3-third">
           <div class="w3-twothird">
-            <h5>GURA WIBONERE VIEWS , SUBS NA WATCHTIME</h5>
+            <h5>BUY WIBONERE VIEWS , SUBS NA WATCHTIME</h5>
             <table class="w3-table w3-striped w3-white">
               <tr>
                 <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
@@ -257,7 +258,7 @@
                 </td>
                 <td><i><a
                       style="text-decoration: none; color: white; background-color: green; padding: 2px 2px 2px 2px;"
-                      href=""><b>GURA</b></a></i></td>
+                      href=""><b>BUY</b></a></i></td>
               </tr>
               <tr>
                 <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
@@ -266,7 +267,7 @@
                 </td>
                 <td><i><a
                       style="text-decoration: none; color: white; background-color: green; padding: 2px 2px 2px 2px;"
-                      href=""><b>GURA</b></a></i></td>
+                      href=""><b>BUY</b></a></i></td>
               </tr>
               <tr>
                 <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
@@ -275,7 +276,7 @@
                 </td>
                 <td><i><a
                       style="text-decoration: none; color: white; background-color: green; padding: 2px 2px 2px 2px;"
-                      href=""><b>GURA</b></a></i></td>
+                      href=""><b>BUY</b></a></i></td>
               </tr>
 
             </table>
@@ -296,7 +297,7 @@
 
           <div class="container" style="background-color:#f1f1f1; color: aliceblue;">
             <a type="button" onclick="document.getElementById('id01').style.display='none'"
-              class="cancelbtn"><b>GURA</b></a>
+              class="cancelbtn"><b>BUY</b></a>
 
           </div>
 
@@ -318,7 +319,7 @@
 
           <div class="container" style="background-color:#f1f1f1; color: aliceblue;">
             <a type="button" onclick="document.getElementById('id01').style.display='none'"
-              class="cancelbtn"><b>GURA</b></a>
+              class="cancelbtn"><b>BUY</b></a>
 
           </div>
         </div>
@@ -337,7 +338,7 @@
           </div>
           <div class="container" style="background-color:#f1f1f1; color: aliceblue;">
             <a type="button" onclick="document.getElementById('id01').style.display='none'"
-              class="cancelbtn"><b>GURA</b></a>
+              class="cancelbtn"><b>BUY</b></a>
 
           </div>
 
@@ -352,16 +353,10 @@
           <form action="/action_page.php">
             <label for="lname">videoId</label>
             <input type="text" id="lname" disabled name="videoID" placeholder="link iri muri format ya id">
-            <input type="submit" disabled value="tanga ibiri haruguru">
-          </form>
-          (shyira hano <b>Id</b> ya channel yawe na discription kugirango ubashe kubona subs wishyuriye  )
-          (iyi form  ikoreshwa rimwe gusa)
-          <form action="/action_page.php">
-            <label for="fname">channelURL</label>
-            <input type="text" id="fname" disabled name="channelURL" placeholder="link iri muri format ya id">
-            <label for="fname">vuga ibyo channel yawe muri make ibyo ikora</label>
+            <input type="text" id="lname" disabled name="videoID" placeholder="link iri muri format ya id">
+            <br>
+            <br>
             <textarea style="height: 30vw; width: 100%;" type="text" id="fname" disabled name="discription" placeholder="iyi channel ikora ibikorwa byo......... "></textarea>
-
             <input type="submit" disabled value="tanga ibiri haruguru">
           </form>
         </div>
@@ -430,5 +425,6 @@
     </script>
 
 </body>
+<% } %> 
 
 </html>
