@@ -113,12 +113,13 @@
       </a>
 
 
-      <a onclick="document.getElementById('mugeni').classList.toggle('show')" style="border-radius:12px;" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white">
+      <a onclick="document.getElementById('mugeni').style.display='block'" style="border-radius:12px;" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white">
         <img src="<%=userClient.Profilephoto%>" class="w3-circle" style="height:23px;width:23px" alt="Avatar">
       </a>
       <div id="mugeni" class="w3-ul" style=" display: none; height: fit-content; width:fit-content; background-color: white; position: absolute; top: 50px; right: 5px;border-radius:12px;">
         <a href="#" style="text-decoration: none; color: black; border-radius:12px;"><li class="w3-hover-black"><b>logOut</b></li></a>
         <a href="#" style="text-decoration: none; color: black; border-radius:12px;"><li class="w3-hover-black"><b>withdraw your earnings</b></li></a>
+        <a onclick="document.getElementById('mugeni').style.display='none'" href="#" style="text-decoration: none; color: black; border-radius:12px;"><li class="w3-hover-red"><b>CLOSE</b></li></a>
       </div>
     </div>
   </div>
@@ -517,18 +518,8 @@
   </footer>
 
   <script>
-    window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsById("mugeni");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
+   
+  
      function triFunction() {
         document.getElementById("id01").style.display='block';
       }
