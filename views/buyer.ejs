@@ -197,7 +197,7 @@
 
     <!-- Header -->
     <header class="w3-container" style="padding-top:22px">
-      <h5><b><i class="fa fa-dashboard"></i>Dashboard yange</b></h5>
+      <h5><b><i class="fa fa-dashboard"></i>My Dashboard</b></h5>
     </header>
     <div class="w3-row-padding w3-margin-bottom">
       <div class="w3-quarter">
@@ -207,7 +207,7 @@
             class="w3-circle w3-margin-right" style="width:150px"></div>
           <div class="w3-clear"></div>
           <h4>Urakaza neza</h4>
-          <h2><b><%=User.userName%> </b></h2>
+          <h2><b><%=User.userName%></b></h2>
         </div>
       </div>
      
@@ -217,7 +217,7 @@
         <div class="w3-container w3-dark-grey w3-padding-16">
           <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
           <div class="w3-right">
-            <h3>99</h3>
+            <h3><%=User.views%></h3>
           </div>
           <div class="w3-clear"></div>
           <h4>views</h4>
@@ -227,7 +227,7 @@
         <div class="w3-container w3-dark-grey w3-padding-16">
           <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
           <div class="w3-right">
-            <h3>23</h3>
+            <h3><%=User.subscribes%></h3>
           </div>
           <div class="w3-clear"></div>
           <h4>Shares / subscribes</h4>
@@ -237,7 +237,7 @@
         <div class="w3-container w3-black w3-text-white w3-padding-16">
           <div class="w3-left"><i class="fa fa-television w3-xxxlarge"></i></div>
           <div class="w3-right">
-            <h3>50</h3>
+            <h3><%=User.watchtime%></h3>
           </div>
           <div class="w3-clear"></div>
           <h4>watchtime</h4>
@@ -249,7 +249,7 @@
       <div class="w3-row-padding" style="margin:0 -16px">
         <div style="width:100%" class="w3-third">
           <div class="w3-twothird">
-            <h5>BUY WIBONERE VIEWS , SUBS NA WATCHTIME</h5>
+            <h5>BUY AND GET VIEWS , SUBCRIBES AND WATCHTIME-HOURS</h5>
             <table class="w3-table w3-striped w3-white">
               <tr>
                 <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
@@ -347,26 +347,53 @@
       </div>
       <hr>
       <div class="w3-container">
-        <h5><b>izi form zikoreshwa ubwishyu bwanyu bwemewe</b></h5>
+        <h5><b>TThis form  will  active when the payment is approved</b></h5>
         (shyira hano links zawe za videos ushaka ko zakoreshwa mukubona watchtime na views)
         <div class="container">
           <form action="/action_page.php">
-            <label for="lname">videoId</label>
-            <input type="text" id="lname" disabled name="videoID" placeholder="link iri muri format ya id">
-            <input type="text" id="lname" disabled name="videoID" placeholder="link iri muri format ya id">
+            <% if (user.status==unpayed&&user.RemainingLinks==0) {%>  
+            <fieldset id="ActiveWhenPaid" disabled>
+            <label for="lname">video url</label>
+            <input type="text" id="lname" name="videoID" placeholder="the link must be in a form of url">
+            <input type="text" id="lname" name="ChannelName" placeholder="your channel name">
+            <input type="text" id="lname" name="channelUrl" placeholder="your channel url">
             <br>
             <br>
-            <textarea style="height: 30vw; width: 100%;" type="text" id="fname" disabled name="discription" placeholder="iyi channel ikora ibikorwa byo......... "></textarea>
-            <input type="submit" disabled value="tanga ibiri haruguru">
+            <textarea style="height: 30vw; width: 100%;" type="text" id="fname" name="discription" placeholder="this video......... "></textarea>
+            <input type="submit" value="submit the above">
+          </fieldset>
+          <% }else{ %>
+            <fieldset id="ActiveWhenPaid" >
+              <label for="lname">video url</label>
+              <input type="text" id="lname" name="videoID" placeholder="the link must be in a form of url">
+              <input type="text" id="lname" name="ChannelName" placeholder="your channel name">
+              <input type="text" id="lname" name="channelUrl" placeholder="your channel url">
+              <br>
+              <br>
+              <textarea style="height: 30vw; width: 100%;" type="text" id="fname" name="discription" placeholder="this video......... "></textarea>
+              <input type="submit" value="submit the above">
+            </fieldset>
+            <% } %> 
           </form>
         </div>
         <div>
-          <h5>video ziri gukorwaho</h5>
-          (<i>wemerewe videos 15 gusa</i>)
+          <h5>the 15 videos in process</h5>
           <ul style="list-style: none;">
-            <li>Coffee</li>
-            <li>Tea</li>
-            <li>Milk</li>
+            <li><%=User.link1%></li>
+            <li><%=User.link2%></li>
+            <li><%=User.link3%></li>
+            <li><%=User.link4%></li>
+            <li><%=User.link5%></li>
+            <li><%=User.link6%></li>
+            <li><%=User.link7%></li>
+            <li><%=User.link8%></li>
+            <li><%=User.link9%></li>
+            <li><%=User.link10%></li>
+            <li><%=User.link11%></li>
+            <li><%=User.link12%></li>
+            <li><%=User.link13%></li>
+            <li><%=User.link14%></li>
+            <li><%=User.link15%></li>
           </ul>
         </div>
 

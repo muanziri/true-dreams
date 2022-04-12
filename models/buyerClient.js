@@ -20,65 +20,70 @@ const UserSchema=new schema({
         type:String,
         required:true
     },
+    status:{
+        type:String,
+        required:true,
+        default:'unpayed'
+    },
     link1:{
         type:String,
-        default:'unpayed'
+        default:'no link'
     },
     link2:{
         type:String,
-        default:'unpayed'
+        default:'no link'
     },
     link3:{
         type:String,
-        default:'unpayed'
+        default:'no link'
     },
     link4:{
         type:String,
-        default:'unpayed'
+        default:'no link'
     },
     link5:{
         type:String,
-        default:'unpayed'
+        default:'no link'
     },
     link6:{
         type:String,
-        default:'unpayed'
+        default:'no link'
     },
     link7:{
         type:String,
-        default:'unpayed'
+        default:'no link'
     },
     link8:{
         type:String,
-        default:'unpayed'
+        default:'no link'
     },
     link9:{
         type:String,
-        default:'unpayed'
+        default:'no link'
     },
     link10:{
         type:String,
-        default:'unpayed'
+        default:'no link'
     },
     link11:{
         type:String,
-        default:'unpayed'
+        default:'no link'
     },
     link12:{
         type:String,
-        default:'unpayed'
+        default:'no link'
     },
     link13:{
         type:String,
-        default:'unpayed'
+        default:'no link'
     },
     link14:{
         type:String,
-        default:'unpayed'
+        default:'no link'
     },
     link15:{
         type:String,
-        default:'unpayed'
+        default:'no link'
     },
     
     
@@ -101,7 +106,13 @@ const UserSchema=new schema({
         type:Number,
         required:true,
         default:0
-    },date:{
+    },
+    RemainingLinks:{
+        type:Number,
+        required:true,
+        default:0
+    },
+    date:{
         type:Date,
         default:Date.now
     }
