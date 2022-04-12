@@ -351,7 +351,7 @@
         (shyira hano links zawe za videos ushaka ko zakoreshwa mukubona watchtime na views)
         <div class="container">
           <form action="/action_page.php">
-            <% if (User.status==unpayed&&User.RemainingLinks==0) {%>  
+            <% if (User.status=="unpayed"&&User.RemainingLinks==0) {%>  
             <fieldset id="ActiveWhenPaid" disabled>
             <label for="lname">video url</label>
             <input type="text" id="lname" name="videoID" placeholder="the link must be in a form of url">
