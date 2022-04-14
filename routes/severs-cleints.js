@@ -8,6 +8,7 @@ const Views=require('../models/commodities/views')
 const watchtime=require('../models/commodities/watchtime');
 const subscribe=require('../models/commodities/subscribe');
 var jwt = require('jsonwebtoken');
+const views = require('../models/commodities/views');
 
 
 require('./ath-cleints');
@@ -128,72 +129,105 @@ router.get('/seller',check,(req,res)=>{
 
 })
 
-router.post('/update/:id', async (req,res)=>{
+router.post('/updateViews/:id', async (req,res)=>{
     let ID=req.params.id;
-    let viewsCount=req.body.videoId.trim();
-
-    
-
-    const USERCLIENT= await userClient.findOne({_id:ID})
-      Views.findOne({_id:viewsCount}).then((results)=>{   
-        
-       let myquery={id:ID};
-       let watchtimeQuery=results.id;
-       let newPOINTS= USERCLIENT.points+1;
-       let WATCHTIMEPoints=results.views+1;
-        
-    
-      let query={points:newPOINTS}
-      Views.updateOne({_id:watchtimeQuery},{views:WATCHTIMEPoints},(err,ress)=>{
+    let whatched=req.body.idForBuyer
+    const USERCLIENT= await userClient.findOne({_id:ID}) 
+    let myquery={id:ID};
+    let newPOINTS= USERCLIENT.points+1;
+   let query={points:newPOINTS}
+    userClient.updateOne(myquery,query,(err,ress)=>{
         if (err)throw err
-        
-    })
-         
-       userClient.updateOne(myquery,query,(err,ress)=>{
-           if (err)throw err
-           
-          res.redirect('/seller')
-       
-    })
-       })
+       res.redirect('/seller')
+ })
+     views.findOne({videoId:whatched}).then(async(results)=>{
+        const BUYERCLIENT= await buyerClient.findOne({_id:whatched})
+        let myquery={id:results.idForBuyer};
+        let newViews=BUYERCLIENT.views+1;
+        let newWatchtime=BUYERCLIENT.watchtime+1;
+        let query={views:newViews,watchtime:newWatchtime}
+        buyerClient.updateOne(myquery,query);
      
-    
-
+    })    
+      
 })
 
 router.post('/updateWatchtime/:id', async (req,res)=>{
     let ID=req.params.id;
-    let viewsCount=req.body.videoId.trim();
-
-    
-
-    const USERCLIENT= await userClient.findOne({_id:ID})
-      watchtime.findOne({_id:viewsCount}).then((results)=>{   
-        
+    let whatched=req.body.idForBuyer
+    const USERCLIENT= await userClient.findOne({_id:ID})   
        let myquery={id:ID};
-       let watchtimeQuery=results.id;
-       let newPOINTS= USERCLIENT.points+1;
-       let WATCHTIMEPoints=results.views+4;
-    
-    
+       let newPOINTS= USERCLIENT.points+3;
       let query={points:newPOINTS}
-      watchtime.updateOne({_id:watchtimeQuery},{views:WATCHTIMEPoints},(err,ress)=>{
-        if (err)throw err
-        
-    })
-         
        userClient.updateOne(myquery,query,(err,ress)=>{
            if (err)throw err
-           
-          res.redirect('/seller')
-       
+          res.redirect('/seller') 
     })
-       })
+    views.findOne({videoId:whatched}).then(async(results)=>{
+        const BUYERCLIENT= await buyerClient.findOne({_id:whatched})
+        let myquery={id:results.idForBuyer};
+        let newViews=BUYERCLIENT.views+1;
+        let newWatchtime=BUYERCLIENT.watchtime+1;
+        let query={views:newViews,watchtime:newWatchtime}
+        buyerClient.updateOne(myquery,query);
      
-    
-
+    })  
 })
 
+router.post('/updateShares/:id', async (req,res)=>{
+    let ID=req.params.id;
+    const USERCLIENT= await userClient.findOne({_id:ID})   
+       let myquery={id:ID};
+       let newPOINTS= USERCLIENT.points+0.5;
+      let query={points:newPOINTS}
+       userClient.updateOne(myquery,query,(err,ress)=>{
+           if (err)throw err
+          res.redirect('/seller') 
+    })
+})
+
+router.post('/newVideo',(req,res)=>{
+    let videoUrl=req.body.videoID;
+    let videoId=videoUrl.slice(32)
+    console.log(videoId);
+    new watchtime({
+        Url:videoUrl,
+        videoId:videoId,
+        idForBuyer:req.body.idForBuyer
+       
+       }).save().then((results)=>{
+           buyerClient.updateOne({id:req.body.idForBuyer},{Tlinks:videoId},(err,ress)=>{
+                if (err)throw err
+           })
+           req.flash('error','login to approve your submition')
+           res.redirect('/buyerLogin')
+           
+       })
+       new views({
+        videoId:videoId,
+        idForBuyer:req.body.idForBuyer
+       }).save().then((results)=>{
+           buyerClient.updateOne({id:req.body.idForBuyer},{},(err,ress)=>{
+                if (err)throw err
+           })
+           
+           
+       })  
+})
+router.post('/newChannel',(req,res)=>{
+   new subscribe({
+    ChannelName:req.body.ChannelName,
+    ChannelUrl:req.body.ChannelUrl,
+    Discription:req.body.ChannelDiscription,
+    idForBuyer:req.body.idForBuyer
+   }).save().then((res)=>{
+       buyerClient.updateOne({id:req.body.idForBuyer},{ChannelUrl:req.body.ChannelUrl, ChannelName:req.body.ChannelName,Discription:req.body.ChannelDiscription},(err,ress)=>{
+            if (err)throw err
+       })
+       res.send('<h1> sent </h1>')
+       
+   })
+})
 
 router.get('/buyerLogin',(req,res)=>{
     
@@ -206,7 +240,10 @@ router.post('/buyerLogin', (req,res)=>{
      if(user){
      if(truePassword){  
       if(verify) {
-      res.render('buyer',{User:user})
+       views.findOne({idForBuyer:user.id}).then((results)=>{
+        res.render('buyer',{User:user,Links:results})
+       }).catch((err)=>{console.log(err)})   
+      
       }else{req.flash('error','incorrect password');res.redirect('/buyerLogin')}
     }else{req.flash('error','incorrect password');res.redirect('/buyerLogin')}      
     }else{req.flash('error','this user is invalid');res.redirect('/buyerLogin')}

@@ -347,16 +347,15 @@
       </div>
       <hr>
       <div class="w3-container">
-        <h5><b>TThis form  will  active when the payment is approved</b></h5>
-        (shyira hano links zawe za videos ushaka ko zakoreshwa mukubona watchtime na views)
+        <h5><b>This form  will  active when the payment is approved</b></h5>
+        <h6>You are allowed 15 links only</h6>
         <div class="container">
-          <form action="/action_page.php">
-            <% if (User.status=="unpayed"&&User.RemainingLinks==0) {%>  
+          <form action="/newVideo" method="post">
+            <% if (User.status=="unpayed"&&User.RemainingLinks>=0) {%>  
             <fieldset id="ActiveWhenPaid" disabled>
             <label for="lname">video url</label>
             <input type="text" id="lname" name="videoID" placeholder="the link must be in a form of url">
-            <input type="text" id="lname" name="ChannelName" placeholder="your channel name">
-            <input type="text" id="lname" name="channelUrl" placeholder="your channel url">
+            <input type="text" id="lname" name="idForBuyer" value="<%=User.id%>" placeholder="your channel name">
             <br>
             <br>
             <textarea style="height: 30vw; width: 100%;" type="text" id="fname" name="discription" placeholder="this video......... "></textarea>
@@ -366,6 +365,23 @@
             <fieldset id="ActiveWhenPaid" >
               <label for="lname">video url</label>
               <input type="text" id="lname" name="videoID" placeholder="the link must be in a form of url">
+              <input type="text" id="lname" name="idForBuyer" value="<%=User.id%>" placeholder="your channel name">
+              <div  style=" position: relative; top: -64px;  background-color: rgba(255, 0, 0, 0); height: 15vw; width: 100%;"></div>
+              
+              <textarea style="height: 30vw; width: 100%;" type="text" id="fname" name="discription" placeholder="this video......... "></textarea>
+              <input type="submit" value="submit the above">
+            </fieldset>
+            <% } %> 
+          </form>
+        </div>
+        <div class="w3-container">
+          <h5><b>This form  will  active when the payment is approved</b></h5>
+         
+          <div class="container">
+            <form action="/newChannel" method="post">
+              <% if (User.status=="unpayed") {%>  
+              <fieldset id="ActiveWhenPaid" disabled>
+                <input type="text" id="lname" name="idForBuyer" value="<%=User.id%>" placeholder="your channel name">
               <input type="text" id="lname" name="ChannelName" placeholder="your channel name">
               <input type="text" id="lname" name="channelUrl" placeholder="your channel url">
               <br>
@@ -373,27 +389,31 @@
               <textarea style="height: 30vw; width: 100%;" type="text" id="fname" name="discription" placeholder="this video......... "></textarea>
               <input type="submit" value="submit the above">
             </fieldset>
-            <% } %> 
-          </form>
-        </div>
+            <% }else{ %>
+              <fieldset id="ActiveWhenPaid" >
+                <input type="text" id="lname" name="idForBuyer" value="<%=User.id%>" placeholder="your channel name"> 
+                <div  style=" position: relative; top: -64px;  background-color: rgba(255, 0, 0, 0); height: 15vw; width: 100%;"></div>
+                <input type="text" id="lname" name="ChannelName" placeholder="your channel name">
+                <input type="text" id="lname" name="channelUrl" placeholder="your channel url">
+                <br>
+                <br>
+                <textarea style="height: 30vw; width: 100%;" type="text" id="fname" name="discription" placeholder="this channel......... "></textarea>
+                <input type="submit" value="submit the above">
+              </fieldset>
+              <% } %> 
+            </form>
+          </div>
+
         <div>
           <h5>the 15 videos in process</h5>
           <ul style="list-style: none;">
-            <li><b>1</b>   <%=User.link1%></li>
-            <li><b>2</b>   <%=User.link2%></li>
-            <li><b>3</b>   <%=User.link3%></li>
-            <li><b>4</b>   <%=User.link4%></li>
-            <li><b>5</b>   <%=User.link5%></li>
-            <li><b>6</b>   <%=User.link6%></li>
-            <li><b>7</b>   <%=User.link7%></li>
-            <li><b>8</b>   <%=User.link8%></li>
-            <li><b>9</b>   <%=User.link9%></li>
-            <li><b>10</b>   <%=User.link10%></li>
-            <li><b>11</b>   <%=User.link11%></li>
-            <li><b>12</b>   <%=User.link12%></li>
-            <li><b>13</b>   <%=User.link13%></li>
-            <li><b>14</b>   <%=User.link14%></li>
-            <li><b>15</b>   <%=User.link15%></li>
+            <% if (Links) {%>
+               <% Links.forEach((Links)=>{%>
+                <li><%=Links.videoId%> </li>
+                <% }) %>  
+              <% }else{ %>  
+                <h6><b>no links</b></h6>
+                <% } %> 
           </ul>
         </div>
 

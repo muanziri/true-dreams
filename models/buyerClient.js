@@ -11,6 +11,18 @@ const UserSchema=new schema({
         type:String,
         required:true
     },
+    ChannelName:{
+        type:String
+        
+    },
+    Discription:{
+        type:String
+      
+    },
+    ChannelUrl:{
+        type:String
+        
+    },
    
     password:{
         type:String,
@@ -25,67 +37,11 @@ const UserSchema=new schema({
         required:true,
         default:'unpayed'
     },
-    link1:{
-        type:String,
-        default:'no link'
+    links:{
+        Tlinks:[String],
+        
     },
-    link2:{
-        type:String,
-        default:'no link'
-    },
-    link3:{
-        type:String,
-        default:'no link'
-    },
-    link4:{
-        type:String,
-        default:'no link'
-    },
-    link5:{
-        type:String,
-        default:'no link'
-    },
-    link6:{
-        type:String,
-        default:'no link'
-    },
-    link7:{
-        type:String,
-        default:'no link'
-    },
-    link8:{
-        type:String,
-        default:'no link'
-    },
-    link9:{
-        type:String,
-        default:'no link'
-    },
-    link10:{
-        type:String,
-        default:'no link'
-    },
-    link11:{
-        type:String,
-        default:'no link'
-    },
-    link12:{
-        type:String,
-        default:'no link'
-    },
-    link13:{
-        type:String,
-        default:'no link'
-    },
-    link14:{
-        type:String,
-        default:'no link'
-    },
-    link15:{
-        type:String,
-        default:'no link'
-    },
-    
+   
     
     phoneNumber:{
         type:Number,
@@ -108,6 +64,11 @@ const UserSchema=new schema({
         default:0
     },
     RemainingLinks:{
+        type:Number,
+        required:true,
+        default:0
+    },
+    RemainingLinksForChannel:{
         type:Number,
         required:true,
         default:0

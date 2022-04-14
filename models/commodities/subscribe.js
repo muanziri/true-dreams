@@ -17,11 +17,10 @@ const shortUrlSchema=new mongoose.Schema({
       type:String,
       required:true  
     }, 
-    clicks:{
-        type:Number,
-        required:true,
-        default:0
-    }
+  idForBuyer:{
+    type:String,
+    required:true  
+  }
 });
 
 module.exports=mongoose.model('subscribe',shortUrlSchema);

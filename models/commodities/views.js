@@ -5,15 +5,18 @@ const mongoose=require('mongoose');
 
 const shortUrlSchema=new mongoose.Schema({
 
+   Url:{
+    type:String,
+    required:true,
+    },
     videoId:{
         type:String,
         required:true,
     },
-    views:{
-        type:Number,
-        required:true,
-        default:0
-    }
+    idForBuyer:{
+    type:String,
+    required:true  
+  }
 });
 
 module.exports=mongoose.model('views',shortUrlSchema);
