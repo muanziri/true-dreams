@@ -204,6 +204,7 @@ router.post('/newVideo',(req,res)=>{
            
        })
        new views({
+        Url:videoUrl,  
         videoId:videoId,
         idForBuyer:req.body.idForBuyer
        }).save().then((results)=>{
@@ -236,11 +237,12 @@ router.get('/buyerLogin',(req,res)=>{
 router.post('/buyerLogin', (req,res)=>{
     buyerClient.findOne({userName:req.body.userName}).then((user)=>{
     const truePassword=  bcrypt.compareSync(req.body.password,user.password)
-    const verify= jwt.verify(user.token,truePassword.toString())
+    const verify= jwt.verify(user.token,process.env.JWTSecret)
      if(user){
      if(truePassword){  
       if(verify) {
-       views.findOne({idForBuyer:user.id}).then((results)=>{
+       views.find({idForBuyer:user.id}).then((results)=>{
+          
         res.render('buyer',{User:user,Links:results})
        }).catch((err)=>{console.log(err)})   
       

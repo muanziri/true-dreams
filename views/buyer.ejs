@@ -405,12 +405,13 @@
           </div>
 
         <div>
-          <h5>the 15 videos in process</h5>
+          <% if (Links) {%>
+          <h5>the <%=Links.length%>  videos in process</h5>
           <ul style="list-style: none;">
-            <% if (Links) {%>
-               <% Links.forEach((Links)=>{%>
-                <li><%=Links.videoId%> </li>
-                <% }) %>  
+           
+               <% Links.forEach((Links)=>{ %> 
+                <li><%=Links.Url%></li>
+                <% }) %> 
               <% }else{ %>  
                 <h6><b>no links</b></h6>
                 <% } %> 
@@ -426,7 +427,19 @@
         <div class="w3-row">
           <div class="w3-container w3-third">
             <h5 class="w3-bottombar w3-border-green">Who we are</h5>
-           
+            <div class="w3-container  ws-grey w3-right" style="margin-left:-32px;margin-right:-32px">
+              <h6 style="font-family: 'Roboto', sans-serif;">The largest web developer site on the internet.</h6>
+              <h6 style="font-family: 'Roboto', sans-serif;">3 billion pages displayed each year.</h6>
+              <h6 style="font-family: 'Roboto', sans-serif;">60 million visitors each month.</h6>
+              <div class="w3-panel w3-large">
+                <i class="fa fa-facebook-official w3-hover-opacity"></i>
+                <i class="fa fa-instagram w3-hover-opacity"></i>
+                <i class="fa fa-snapchat w3-hover-opacity"></i>
+                <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+                <i class="fa fa-twitter w3-hover-opacity"></i>
+                <i class="fa fa-linkedin w3-hover-opacity"></i>
+              </div>
+            </div>
           </div>
         </div>
       </div>
